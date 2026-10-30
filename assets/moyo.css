@@ -1,0 +1,155 @@
+/* =========================================================
+   MOYO — общие токены и компоненты (см. styleguide.html)
+   ========================================================= */
+:root{
+  --bg:#07060A; --bg-2:#0D0C11; --surface:#131118; --surface-2:#1A1820;
+  --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+  --text:#F4F2F8; --text-2:#A6A1B4; --text-3:#6C6878; --text-off:#34313D;
+  --accent:#8A6BFF; --accent-hi:#A08BFF; --accent-lo:#5B43D6;
+  --accent-a12:rgba(138,107,255,.12); --accent-a30:rgba(138,107,255,.30); --accent-glow:rgba(138,107,255,.55);
+  --ok:#FF4FBF; --lime:#FF4FBF; --lime-glow:rgba(255,79,191,.42); --violet-bg:#2F1870; --err:#FF6B7A;
+  --glass:rgba(255,255,255,.045); --blur:20px;
+  --r-xs:8px; --r-s:12px; --r-m:20px; --r-l:28px; --r-pill:999px;
+  --sans:'Manrope',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1); --t-fast:.2s; --t-mid:.45s; --t-slow:.8s;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{background:transparent;color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;min-width:1280px;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{width:1280px;margin:0 auto;position:relative}
+.acc{color:var(--accent)}
+
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.label b{color:var(--text-2);font-weight:500}
+.glass{background:var(--glass);border:1px solid var(--line-2);backdrop-filter:blur(var(--blur));-webkit-backdrop-filter:blur(var(--blur));box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.btn{display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 26px;border-radius:var(--r-pill);font-weight:600;font-size:15px;transition:background var(--t-fast),transform var(--t-mid) var(--ease),border-color var(--t-fast),color var(--t-fast)}
+.btn-p{background:var(--accent);color:#fff}
+.btn-p:hover{background:var(--accent-hi);transform:translateY(-2px)}
+.btn-w{background:var(--text);color:var(--bg)}
+.btn-w:hover{transform:translateY(-2px)}
+.btn-g{background:var(--glass);border:1px solid var(--line-2);backdrop-filter:blur(var(--blur))}
+.btn-g:hover{border-color:rgba(255,255,255,.3)}
+.btn .ar{width:30px;height:30px;margin-right:-14px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:#fff;box-shadow:0 0 14px var(--lime-glow);transition:transform var(--t-mid) var(--ease)}
+.btn-g .ar,.btn-w .ar{background:var(--lime);color:#fff}
+.btn:hover .ar{transform:rotate(-45deg)}
+.btn-m{background:var(--lime);color:#fff;box-shadow:0 14px 40px -12px var(--lime-glow)}
+.btn-m:hover{background:#FF6FCB;transform:translateY(-2px)}
+.btn-m .ar{background:rgba(0,0,0,.2);box-shadow:none}
+.btn-s{height:40px;padding:0 18px;font-size:14px}
+.ibtn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);background:var(--glass);transition:all var(--t-fast)}
+.ibtn:hover{border-color:var(--accent);color:var(--accent)}
+.chip{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:var(--r-pill);font-size:13px;font-weight:500;color:var(--text-2);border:1px solid var(--line-2);background:var(--glass);backdrop-filter:blur(var(--blur))}
+.chip i{width:6px;height:6px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime-glow)}
+.tag{display:inline-flex;height:26px;align-items:center;padding:0 10px;border-radius:var(--r-xs);font-size:12px;font-weight:500;background:rgba(255,255,255,.06);color:var(--text-2)}
+
+/* ---------- поле: смешанная сетка, которая тянется к шарику ---------- */
+.mfield{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.mfield .ln{fill:none;stroke:rgba(255,255,255,.12);stroke-width:1}
+.mfield .ln.h{stroke:rgba(255,255,255,.09)}
+.mfield .cs circle{fill:#fff}
+.mfield .cs path{fill:none;stroke:rgba(255,255,255,.07);stroke-width:1}
+.orb-ball{position:absolute;left:0;top:0;width:0;height:0;pointer-events:none;z-index:3}
+.orb-ball::before{content:"";position:absolute;left:-60px;top:-60px;width:120px;height:120px;border-radius:50%;background:radial-gradient(closest-side,var(--accent-glow),rgba(138,107,255,.12) 55%,transparent)}
+.orb-ball::after{content:"";position:absolute;left:-6px;top:-6px;width:12px;height:12px;border-radius:50%;background:#E6DEFF;box-shadow:0 0 14px 4px var(--accent),0 0 2px #fff}
+
+/* ---------- прожектор ---------- */
+.spot{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.spot .rig{position:absolute;top:-6px;width:44px;height:30px;margin-left:-22px;border-radius:0 0 12px 12px;background:#1A1820;border:1px solid var(--line-2);z-index:2}
+.spot .rig::after{content:"";position:absolute;left:12px;right:12px;bottom:-3px;height:5px;border-radius:3px;background:#E6DEFF;box-shadow:0 0 18px 6px var(--accent-glow)}
+.spot .beam{position:absolute;top:18px;transform-origin:50% 0;clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);background:linear-gradient(180deg,rgba(214,204,255,.40),rgba(138,107,255,.14) 70%,rgba(138,107,255,.04));filter:blur(6px)}
+.spot .pool{position:absolute;left:0;top:0;width:520px;height:200px;margin:-100px 0 0 -260px;border-radius:50%;background:radial-gradient(closest-side,rgba(176,160,255,.28),rgba(138,107,255,.08) 60%,transparent)}
+.spot .dust{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:0}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* =========================================================
+   СМЕНА ФОНА ПО СКРОЛЛУ: тёмный ↔ фиолетовый (scrollfx.js ставит html.v)
+   ========================================================= */
+html.v{background:var(--violet-bg);--text-2:#CFC5EE;--text-3:#A497CF;--line:rgba(255,255,255,.12);--line-2:rgba(255,255,255,.2);--glass:rgba(255,255,255,.06)}
+.acc{transition:color .9s var(--ease)}
+html.v .acc{color:#D4C7FF}
+.lime{color:var(--lime)}
+
+/* =========================================================
+   ТЕКСТОВАЯ ПЕРЕБИВКА: крупные заголовки сменяют друг друга по скроллу,
+   слова проявляются, смена — переворот карточки
+   ========================================================= */
+.tx{position:relative}
+.tx .pin{position:sticky;top:0;height:100vh;overflow:hidden}
+.tx-top{position:absolute;left:0;right:0;top:120px;display:flex;justify-content:space-between;align-items:center;padding:0 24px}
+.tx-top .label{display:inline-flex;align-items:center;gap:10px;color:var(--text-2)}
+.tx-top .label i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime-glow)}
+.tx-n b{color:var(--lime);font-weight:500}
+.tx-stage{position:absolute;left:0;right:0;top:50%;height:300px;margin-top:-170px;perspective:1400px}
+.tx-f{position:absolute;left:50%;top:50%;width:1240px;margin-left:-620px;transform-origin:50% 50% -90px;text-align:center;font-size:118px;font-weight:600;letter-spacing:-.058em;line-height:.96;backface-visibility:hidden;will-change:transform,opacity;opacity:0}
+.tx-f .w{display:inline-block;color:rgba(255,255,255,.16);transition:color .25s}
+.tx-f .w.on{color:var(--text)}
+.tx-f .w.k.on{color:var(--lime)}
+.tx-bar{position:absolute;left:50%;bottom:150px;transform:translateX(-50%);display:flex;gap:8px}
+.tx-bar i{position:relative;width:46px;height:3px;border-radius:2px;background:rgba(255,255,255,.16);overflow:hidden}
+.tx-bar i b{position:absolute;inset:0;background:var(--lime);transform-origin:0 50%;transform:scaleX(0)}
+.tx-cta{position:absolute;left:0;right:0;bottom:64px;display:flex;justify-content:center;opacity:0;transform:translateY(14px);transition:all .5s var(--ease);pointer-events:none}
+.tx-cta.on{opacity:1;transform:none;pointer-events:auto}
+
+/* =========================================================
+   ФУТЕР: призыв + колонки + огромный логотип с «притягивающейся» точкой
+   ========================================================= */
+.ft{position:relative;z-index:2;padding:110px 0 0;overflow:hidden;font-size:14px;color:var(--text-2)}
+.ft .wrap{padding:0 24px}
+.ft-top{display:grid;grid-template-columns:1fr auto;align-items:end;gap:40px;padding-bottom:70px;border-bottom:1px solid var(--line)}
+.ft-top h3{font-size:64px;font-weight:600;letter-spacing:-.05em;line-height:1;color:var(--text);margin-top:20px}
+.ft-act{display:flex;gap:12px}
+.ft-cols{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:40px;padding:50px 0}
+.ft-cols h5{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px}
+.ft-cols ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.ft-cols a{transition:color .2s}.ft-cols a:hover{color:var(--lime)}
+.ft-clock{display:flex;flex-direction:column;gap:14px}
+.ft-clock .t{font-size:44px;font-weight:600;letter-spacing:-.04em;color:var(--text);line-height:1}
+.ft-clock .t i{font-style:normal;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.ft-clock .st{display:inline-flex;align-items:center;gap:8px}
+.ft-clock .st i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime-glow)}
+.ft-note{color:#FFB3BA;font-size:11px}
+.ft-mark{position:relative;width:1232px;margin:10px auto 0;aspect-ratio:401.014/95.8345}
+.ft-mark img{position:absolute;inset:0;width:100%;height:100%;opacity:.95;clip-path:inset(0 0 0 0);transform:translateY(40%);opacity:0;transition:transform 1.2s var(--ease),opacity 1.2s var(--ease)}
+.ft-mark.in img{transform:none;opacity:.95}
+.ft-pupil{position:absolute;left:40.34%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--lime);box-shadow:0 0 40px 6px var(--lime-glow);transform:scale(0);transition:transform .8s .5s var(--ease)}
+.ft-mark.in .ft-pupil{transform:scale(1)}
+.ft-pupil span{position:absolute;left:92px;top:-6px;white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--lime)}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;padding:28px 0 34px;margin-top:34px;border-top:1px solid var(--line);font-size:13px;color:var(--text-3)}
+.ft-bot a:hover{color:var(--text)}
+.ft-up{display:inline-flex;align-items:center;gap:8px;color:var(--text-2)}
+.ft-up:hover{color:var(--lime)}
+
+/* =========================================================
+   КАБИНЕТ: крупный заголовок, затем карточки по одной
+   прилетают рубашкой вверх и переворачиваются лицом
+   ========================================================= */
+.cab{position:relative}
+.cab .pin{position:sticky;top:0;height:100vh;overflow:hidden;perspective:1800px}
+.cab-head{position:absolute;left:0;right:0;top:0;text-align:center;transform-origin:50% 0;z-index:3;will-change:transform}
+.cab-head .label{color:var(--text-2)}
+.cab-head h2{font-size:100px;font-weight:600;letter-spacing:-.058em;line-height:.95;margin-top:20px}
+.cab-stage{position:absolute;left:50%;top:50%;width:800px;height:520px;margin:-190px 0 0 -400px;transform-style:preserve-3d}
+.cc{position:absolute;inset:0;transform-style:preserve-3d;--o:0;will-change:transform}
+.cc-front,.cc-back{opacity:var(--o)}
+.cc-in{position:absolute;inset:0;transform-style:preserve-3d}
+.cc-front,.cc-back{position:absolute;inset:0;border-radius:24px;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.cc-front{background:#100E17;border:1px solid var(--line-2);box-shadow:0 50px 120px -40px rgba(0,0,0,.75)}
+.cc-front .dbar{display:flex;align-items:center;gap:14px;height:52px;padding:0 22px;border-bottom:1px solid var(--line)}
+.cc-front .dbar img{height:14px;opacity:.9}
+.cc-front .cc-t{font-size:14px;font-weight:600}
+.cc-front .dbar .label{margin-left:auto}
+.cc-back{transform:rotateY(180deg);background:var(--accent);padding:34px 38px;display:flex;flex-direction:column;justify-content:space-between;color:#fff}
+.cc-back::before{content:"";position:absolute;right:-120px;bottom:-160px;width:520px;height:520px;border-radius:50%;border:44px solid rgba(255,255,255,.14)}
+.cc-back::after{content:"";position:absolute;right:96px;top:84px;width:26px;height:26px;border-radius:50%;background:var(--lime);box-shadow:0 0 30px 6px var(--lime-glow)}
+.cc-back img{height:20px;align-self:flex-start;position:relative}
+.cc-back .n{position:absolute;right:38px;top:28px;font-family:var(--mono);font-size:14px;opacity:.75}
+.cc-back b{position:relative;font-size:58px;font-weight:600;letter-spacing:-.05em;line-height:1;max-width:520px}
+.cab-dots{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.cab-dots i{width:28px;height:3px;border-radius:2px;background:rgba(255,255,255,.18);transition:background .4s}
+.cab-dots i.on{background:var(--lime)}
