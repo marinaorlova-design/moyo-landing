@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MOYO — платформа индустрии событий</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/moyo.css?v=13">
+<style>
+.home{position:relative;height:100vh;min-height:860px;overflow:hidden}
+.top{position:absolute;left:0;right:0;top:26px;z-index:6}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.top img{height:22px}
+.top .r{display:flex;align-items:center;gap:10px}
+.top .mgr{font-size:13px;color:var(--text-2);margin-right:8px;text-align:right;line-height:1.35}
+.top .mgr b{display:block;color:var(--text);font-weight:600}
+
+.hd{position:absolute;left:0;right:0;top:112px;text-align:center;z-index:4;pointer-events:none}
+.hd h1{font-size:88px;font-weight:600;letter-spacing:-.055em;line-height:.94;margin:22px 0 0}
+.hd .label{display:block;margin-top:30px}
+
+.roles{position:absolute;left:50%;top:400px;transform:translateX(-50%);display:flex;gap:24px;z-index:4}
+.role{position:relative;width:410px;border-radius:var(--r-l);overflow:hidden;display:flex;flex-direction:column;transition:transform .7s var(--ease),border-color .5s,background .5s}
+.role .ill{height:236px;position:relative;border-bottom:1px solid var(--line)}
+.role .ill svg{position:absolute;left:50%;bottom:0;width:300px;height:240px;margin-left:-150px}
+.role .tx{padding:22px 26px 26px;position:relative}
+.role b{display:block;font-size:34px;font-weight:600;letter-spacing:-.04em;line-height:1.05;margin:12px 0 8px}
+.role small{display:block;font-size:15px;color:var(--text-2);line-height:1.45;max-width:290px}
+.role .ar{position:absolute;right:24px;bottom:28px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);font-size:18px;transition:all .5s var(--ease)}
+.role.lit{border-color:rgba(176,160,255,.4);background:rgba(138,107,255,.07)}
+.role.big{transform:scale(1.045)}
+.role.big .ar{background:var(--lime);border-color:var(--lime);color:#fff;transform:rotate(-45deg)}
+.role.lit .label{color:var(--lime)}
+.hd .label{display:inline-flex!important;align-items:center;gap:10px}
+.hd .label i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime-glow)}
+
+.foot{position:absolute;left:0;right:0;bottom:30px;z-index:4}
+.foot .wrap{display:flex;justify-content:space-between;padding:0 24px}
+</style>
+</head>
+<body>
+<main class="home" id="home">
+  <header class="top"><div class="wrap">
+    <img src="assets/logo.svg" alt="MOYO">
+    <div class="r">
+      <div class="mgr"><b>Менеджер на связи</b>9:00–18:00 МСК</div>
+      <a class="ibtn" href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M21 4 3 11l6 2 2 6 3-4 5 4 2-15Z"/><path d="m9 13 8-6"/></svg></a>
+      <a class="btn btn-g btn-s" href="#" data-auth="login">Войти</a>
+      <a class="btn btn-p btn-s" href="#" data-auth="signup">Регистрация</a>
+    </div>
+  </div></header>
+
+  <div class="hd">
+    <span class="chip"><i></i>MOYO — платформа индустрии событий</span>
+    <h1>Здесь <span class="acc">притягиваются</span><br>нужные люди</h1>
+    <span class="label"><i></i>Выбери роль</span>
+  </div>
+
+  <div class="roles">
+    <a class="role glass" href="ispolnitel.html" data-r="l">
+      <div class="ill" data-ill="singer"></div>
+      <div class="tx"><span class="label">01 / Исполнителю</span><b>Я исполнитель</b><small>Собери анкету за&nbsp;2&nbsp;минуты и&nbsp;получай заказы под&nbsp;защитой оплаты</small><span class="ar">→</span></div>
+    </a>
+    <a class="role glass" href="zakazchik.html" data-r="r">
+      <div class="ill" data-ill="client"></div>
+      <div class="tx"><span class="label">02 / Заказчику</span><b>Я заказчик</b><small>Опиши событие, и&nbsp;команда соберётся сама: от&nbsp;ведущего до&nbsp;звука</small><span class="ar">→</span></div>
+    </a>
+  </div>
+
+  <div class="foot"><div class="wrap"><span class="label">Безопасная сделка · AI-анкеты · Резидент Сколково</span><span class="label">© MOYO 2026</span></div></div>
+</main>
+
+<script src="assets/field.js?v=13"></script>
+<script src="assets/illus.js?v=13"></script>
+<script src="assets/auth.js?v=13"></script>
+<script>
+const home=document.getElementById('home'),roles=[...document.querySelectorAll('.role')];
+roles.forEach(r=>r.querySelector('.ill').innerHTML=ILL[r.querySelector('.ill').dataset.ill]());
+const field=MoyoField(home);
+const center=el=>{const a=el.getBoundingClientRect(),b=home.getBoundingClientRect();return[a.left-b.left+a.width/2,a.top-b.top+a.height*.42]};
+// прожектор сам ходит по карточкам и сцене
+const spot=MoyoSpot(home,{fx:.5,spread:22,points:(W,H)=>[center(roles[0]),[W*.5,H*.3],center(roles[1]),[W*.2,H*.42],[W*.8,H*.4]]});
+let hovered=null;
+roles.forEach(r=>{
+  r.addEventListener('mouseenter',()=>{hovered=r;const [x,y]=center(r);spot.aim(x,y);field.goTo(x,y-40)});
+  r.addEventListener('mouseleave',()=>{hovered=null;spot.free();field.release()});
+});
+// карточка светится, когда на ней луч; увеличивается — при наведении
+(function lit(){
+  const [sx,sy]=spot.pos;
+  roles.forEach(r=>{const [x,y]=center(r);r.classList.toggle('lit',Math.hypot(sx-x,sy-y)<150);r.classList.toggle('big',r===hovered)});
+  requestAnimationFrame(lit);
+})();
+</script>
+</body>
+</html>
