@@ -7,7 +7,7 @@
   --text:#F4F2F8; --text-2:#A6A1B4; --text-3:#6C6878; --text-off:#34313D;
   --accent:#8A6BFF; --accent-hi:#A08BFF; --accent-lo:#5B43D6;
   --accent-a12:rgba(138,107,255,.12); --accent-a30:rgba(138,107,255,.30); --accent-glow:rgba(138,107,255,.55);
-  --ok:#FF4FBF; --lime:#FF4FBF; --lime-glow:rgba(255,79,191,.42); --violet-bg:#2F1870; --err:#FF6B7A;
+  --ok:#C6F35E; --lime:#C6F35E; --lime-glow:rgba(198,243,94,.42); --violet-bg:#2F1870; --err:#FF6B7A;
   --glass:rgba(255,255,255,.045); --blur:20px;
   --r-xs:8px; --r-s:12px; --r-m:20px; --r-l:28px; --r-pill:999px;
   --sans:'Manrope',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
@@ -31,11 +31,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .btn-w:hover{transform:translateY(-2px)}
 .btn-g{background:var(--glass);border:1px solid var(--line-2);backdrop-filter:blur(var(--blur))}
 .btn-g:hover{border-color:rgba(255,255,255,.3)}
-.btn .ar{width:30px;height:30px;margin-right:-14px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:#fff;box-shadow:0 0 14px var(--lime-glow);transition:transform var(--t-mid) var(--ease)}
-.btn-g .ar,.btn-w .ar{background:var(--lime);color:#fff}
+.btn .ar{width:30px;height:30px;margin-right:-14px;border-radius:50%;display:grid;place-items:center;background:var(--lime);color:#10120A;box-shadow:0 0 14px var(--lime-glow);transition:transform var(--t-mid) var(--ease)}
+.btn-g .ar,.btn-w .ar{background:var(--lime);color:#10120A}
 .btn:hover .ar{transform:rotate(-45deg)}
-.btn-m{background:var(--lime);color:#fff;box-shadow:0 14px 40px -12px var(--lime-glow)}
-.btn-m:hover{background:#FF6FCB;transform:translateY(-2px)}
+.btn-m{background:var(--lime);color:#10120A;box-shadow:0 14px 40px -12px var(--lime-glow)}
+.btn-m:hover{background:#D4F77E;transform:translateY(-2px)}
 .btn-m .ar{background:rgba(0,0,0,.2);box-shadow:none}
 .btn-s{height:40px;padding:0 18px;font-size:14px}
 .ibtn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);background:var(--glass);transition:all var(--t-fast)}
