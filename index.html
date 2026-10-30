@@ -6,7 +6,7 @@
 <title>MOYO — платформа индустрии событий</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/moyo.css?v=13">
+<link rel="stylesheet" href="assets/moyo.css?v=14">
 <style>
 .home{position:relative;height:100vh;min-height:860px;overflow:hidden}
 .top{position:absolute;left:0;right:0;top:26px;z-index:6}
@@ -30,7 +30,7 @@
 .role .ar{position:absolute;right:24px;bottom:28px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line-2);font-size:18px;transition:all .5s var(--ease)}
 .role.lit{border-color:rgba(176,160,255,.4);background:rgba(138,107,255,.07)}
 .role.big{transform:scale(1.045)}
-.role.big .ar{background:var(--lime);border-color:var(--lime);color:#fff;transform:rotate(-45deg)}
+.role.big .ar{background:var(--lime);border-color:var(--lime);color:#10120A;transform:rotate(-45deg)}
 .role.lit .label{color:var(--lime)}
 .hd .label{display:inline-flex!important;align-items:center;gap:10px}
 .hd .label i{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 10px var(--lime-glow)}
@@ -71,9 +71,9 @@
   <div class="foot"><div class="wrap"><span class="label">Безопасная сделка · AI-анкеты · Резидент Сколково</span><span class="label">© MOYO 2026</span></div></div>
 </main>
 
-<script src="assets/field.js?v=13"></script>
-<script src="assets/illus.js?v=13"></script>
-<script src="assets/auth.js?v=13"></script>
+<script src="assets/field.js?v=14"></script>
+<script src="assets/illus.js?v=14"></script>
+<script src="assets/auth.js?v=14"></script>
 <script>
 const home=document.getElementById('home'),roles=[...document.querySelectorAll('.role')];
 roles.forEach(r=>r.querySelector('.ill').innerHTML=ILL[r.querySelector('.ill').dataset.ill]());

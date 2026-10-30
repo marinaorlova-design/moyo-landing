@@ -6,7 +6,7 @@
 <title>MOYO для заказчиков — команда на событие с гарантией</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/moyo.css?v=13">
+<link rel="stylesheet" href="assets/moyo.css?v=14">
 <style>
 /* совместимость со старыми блоками (кабинет, FAQ, футер, чат, модалка) */
 :root{--card:#131118;--card2:#1A1820;--mut:var(--text-2);--mut2:var(--text-3);--line2:var(--line-2);--grad:var(--accent);--disp:var(--sans);--body:var(--sans);--m:var(--accent)}
@@ -71,7 +71,7 @@ main,footer{position:relative;z-index:2}
 /* опиши событие → AI собирает команду */
 .hv1 h1{top:108px;font-size:84px}
 .hv1 .h-cta{top:790px}
-.tm .mt{position:absolute;left:10px;top:10px;z-index:2;padding:5px 10px;border-radius:99px;background:var(--lime);color:#fff;font-size:11px;font-weight:700;opacity:0;transform:translateY(-6px) scale(.9);transition:all .5s .2s var(--ease)}
+.tm .mt{position:absolute;left:10px;top:10px;z-index:2;padding:5px 10px;border-radius:99px;background:var(--lime);color:#10120A;font-size:11px;font-weight:700;opacity:0;transform:translateY(-6px) scale(.9);transition:all .5s .2s var(--ease)}
 .tm.snap .mt{opacity:1;transform:none}
 .ask{position:absolute;left:50%;top:300px;width:660px;margin-left:-330px;padding:18px 74px 18px 22px;border-radius:22px;z-index:5;min-height:94px}
 .ask .label{display:block;margin-bottom:6px}
@@ -277,7 +277,7 @@ main,footer{position:relative;z-index:2}
 .msg.r{background:var(--accent);border-bottom-right-radius:4px;align-self:flex-end}
 .msg small{display:block;font-size:11px;opacity:.6;margin-bottom:2px}
 .sys{align-self:center;display:flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;font-size:13px;background:rgba(255,255,255,.03);border:1px solid var(--line2);opacity:0;transform:translateY(10px)}
-.sys .ck{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:rgba(255,79,191,.15);color:var(--ok);font-size:12px}
+.sys .ck{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:rgba(198,243,94,.15);color:var(--ok);font-size:12px}
 .sys.lockd{border-color:rgba(185,177,255,.45);background:rgba(123,108,255,.1)}
 .sys.lockd .ck{background:var(--grad);color:#fff}
 .scr.on .chat>*{animation:up .5s cubic-bezier(.2,.8,.2,1) forwards}
@@ -637,10 +637,10 @@ main,footer{position:relative;z-index:2}
 
 
 
-<script src="assets/field.js?v=13"></script>
-<script src="assets/auth.js?v=13"></script>
-<script src="assets/scrollfx.js?v=13"></script>
-<script src="assets/illus.js?v=13"></script>
+<script src="assets/field.js?v=14"></script>
+<script src="assets/auth.js?v=14"></script>
+<script src="assets/scrollfx.js?v=14"></script>
+<script src="assets/illus.js?v=14"></script>
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const REDUCE=matchMedia('(prefers-reduced-motion: reduce)').matches;
